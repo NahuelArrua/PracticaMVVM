@@ -1,0 +1,69 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.example.practicamvvm'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.practicamvvm"
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures{
+        viewBinding = true
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.10.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    //ViewModel
+    //Se diseñó la clase ViewModel a fin de almacenar y administrar datos relacionados con la IU de
+    // manera optimizada para los ciclos de vida. La clase ViewModel permite que se conserven los datos
+    // luego de cambios de configuración, como las rotaciones de pantallas.
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2'
+    //LiveData
+    //LiveData es una clase de contenedor de datos observables. A diferencia de un observable regular,
+    // LiveData está optimizado para ciclos de vida, lo que significa que respeta el ciclo de vida de
+    // otros componentes de las apps, como actividades, fragmentos o servicios. Esta optimización garantiza
+    // que LiveData solo actualice observadores de componentes de apps que tienen un estado de ciclo de
+    // vida activo.
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.2'
+    implementation 'androidx.activity:activity-ktx:1.8.1'
+
+    //Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.1.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.4'
+    
+
+    //Corrutinas
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
+}
